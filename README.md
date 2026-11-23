@@ -1,10 +1,16 @@
-# Prompt Cleaner
+# Exif Cleaner
 
 이미지를 공유하기 전에 NovelAI 프롬프트와 관련 생성 정보를 제거한 사본을 만드는 Windows 앱입니다. 이미지 업로드·계정·API 키가 필요하지 않습니다.
 
+## 다운로드
+
+[최신 Windows 실행 파일](https://github.com/PARKDEC/exif-cleaner/releases/latest)에서 ZIP을 받아 전체 압축을 풀고 `ExifCleaner.exe`를 실행하세요.
+
+이름의 EXIF 외에도 PNG 텍스트, XMP, IPTC와 지원하는 숨김 생성 정보를 함께 제거합니다.
+
 ## 사용법
 
-1. 배포 폴더의 `PromptCleaner.exe`를 더블클릭합니다.
+1. 배포 폴더의 `ExifCleaner.exe`를 더블클릭합니다.
 2. 원하는 위치에 저장하려면 먼저 **저장 폴더 선택**을 누릅니다. 선택한 폴더에 사본과 보고서를 바로 저장합니다.
 3. **파일 추가**로 PNG·JPG 이미지를 고르거나 **폴더 추가**로 폴더를 고릅니다. 파일·폴더 여러 개를 드롭 구역에 함께 놓아도 됩니다.
 4. 처리 중에도 파일·폴더를 추가할 수 있습니다. 추가한 순서대로 대기열에 등록되고, 현재 작업이 끝나면 다음 작업을 자동 처리합니다.
@@ -35,7 +41,7 @@
 
 **대기열 비우기**는 아직 시작하지 않은 작업만 취소하며, 현재 처리 중인 작업과 디스크 파일에는 영향을 주지 않습니다. 대기열은 앱을 켜 둔 동안만 유지됩니다. 앱을 닫으면 현재 파일을 안전하게 마친 뒤 종료하고 대기 중인 작업들은 실행하지 않습니다.
 
-배포 폴더의 `_internal`은 실행에 필요한 파일입니다. `PromptCleaner.exe`와 함께 같은 폴더에 보관해 주세요. Python을 따로 설치할 필요는 없습니다.
+배포 폴더의 `_internal`은 실행에 필요한 파일입니다. `ExifCleaner.exe`와 함께 같은 폴더에 보관해 주세요. Python을 따로 설치할 필요는 없습니다.
 
 ## 처리 범위
 
@@ -62,6 +68,6 @@ python -m venv .venv
 .\.venv\Scripts\python.exe build.py --destination dist --work-root work
 ```
 
-빌드 스크립트는 기존 `PromptCleaner` 배포 폴더를 덮어쓰지 않습니다. 새 목적지를 지정해 주세요. 테스트 자료도 자동 삭제하지 않고 `work/test-artifacts`에 보관합니다.
+빌드 스크립트는 기존 `ExifCleaner` 배포 폴더를 덮어쓰지 않습니다. 새 목적지를 지정해 주세요. 테스트 자료도 자동 삭제하지 않고 `work/test-artifacts`에 보관합니다.
 
 설계와 요구 사항은 `docs/intent.md`, `docs/architecture.md`에 있습니다.

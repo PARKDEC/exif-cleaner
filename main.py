@@ -10,7 +10,7 @@ from promptcleaner.ui import CleanerApp
 
 def main():
     if sys.platform == 'win32':
-        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('PromptCleaner.Desktop.1')
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('ExifCleaner.Desktop.1')
         try:
             ctypes.windll.shcore.SetProcessDpiAwareness(1)
         except (OSError, AttributeError):

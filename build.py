@@ -16,8 +16,8 @@ def main():
     parser.add_argument('--work-root', type=Path, required=True)
     args = parser.parse_args()
     source = Path(__file__).resolve().parent
-    if (args.destination / 'PromptCleaner').exists():
-        parser.error('Destination already contains PromptCleaner; choose a new destination.')
+    if (args.destination / 'ExifCleaner').exists():
+        parser.error('Destination already contains ExifCleaner; choose a new destination.')
     stamp = datetime.now().strftime('%Y%m%d_%H%M%S_%f')
     scratch = args.work_root.resolve() / ('build_' + stamp)
     scratch.mkdir(parents=True)
@@ -33,13 +33,13 @@ def main():
     icon.save(assets / 'icon.ico', sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])
     subprocess.run([
         sys.executable, '-m', 'PyInstaller', '--onedir', '--windowed',
-        '--name', 'PromptCleaner', '--icon', str(assets / 'icon.ico'),
+        '--name', 'ExifCleaner', '--icon', str(assets / 'icon.ico'),
         '--add-data', f'{assets}:promptcleaner/assets',
         '--distpath', str(args.destination.resolve()),
         '--workpath', str(scratch / 'build'), '--specpath', str(scratch),
         str(source / 'main.py'),
     ], check=True, cwd=source)
-    output = args.destination.resolve() / 'PromptCleaner'
+    output = args.destination.resolve() / 'ExifCleaner'
     (output / '사용법.md').write_bytes((source / 'README.md').read_bytes())
     licenses = output / 'licenses'
     licenses.mkdir()

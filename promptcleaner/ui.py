@@ -52,7 +52,7 @@ class CleanerApp:
         self.queue_text = tk.StringVar(value='대기 0건')
         self.output_text = tk.StringVar(value='기본: 원본 폴더 안에 새 결과 폴더')
         self.count_text = tk.StringVar(value='PNG · JPG   /   하위 폴더 제외')
-        root.title('Prompt Cleaner · 프롬프트 제거')
+        root.title('Exif Cleaner · 프롬프트 제거')
         root.configure(bg=BG)
         width = min(self.px(840), root.winfo_screenwidth() - self.px(40))
         height = min(self.px(820), root.winfo_screenheight() - self.px(60))
@@ -113,7 +113,7 @@ class CleanerApp:
         header.pack(fill='x')
         self._label(header, 'PC', bg=GREEN, fg='white', font=('Segoe UI', 12, 'bold'),
                     width=3, pady=5).pack(side='left')
-        self._label(header, '  Prompt Cleaner', font=('Segoe UI', 14, 'bold')).pack(side='left')
+        self._label(header, '  Exif Cleaner', font=('Segoe UI', 14, 'bold')).pack(side='left')
         self._label(header, f'LOCAL ONLY  ·  v{__version__}', fg=MUTED,
                     font=('Segoe UI', 9)).pack(side='right')
         self._label(shell, '공유할 이미지의 프롬프트를 정리하세요.',
@@ -420,7 +420,7 @@ class CleanerApp:
         self._refresh_queue()
         self.progress.configure(value=0, maximum=1)
         self.worker = threading.Thread(target=self._worker, args=(job.source, job.output_folder, resolutions),
-                                       name=f'PromptCleaner-job-{job.number}', daemon=False)
+                                       name=f'ExifCleaner-job-{job.number}', daemon=False)
         self.worker.start()
 
     def _append_result(self, row):
